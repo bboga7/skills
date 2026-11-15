@@ -76,7 +76,7 @@ Then ask your agent for a page, or for a review of a page you already have:
 
 ### Use the scripts on their own
 
-Requires Python 3.8 or newer. No packages to install.
+Requires the Python programming language, version 3.8 or newer. No packages to install.
 
 ```bash
 # Score a page from 0 to 100 and list what to fix
