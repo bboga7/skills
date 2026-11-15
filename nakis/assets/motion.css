@@ -1,0 +1,154 @@
+/*
+  nakis / motion.css
+  Small, purposeful motion pieces. Copy only what the page uses.
+  Every effect is disabled under prefers-reduced-motion.
+  License: MIT
+*/
+
+:root {
+  --ease-settle: cubic-bezier(.2, .7, .1, 1);
+  --ease-snap: cubic-bezier(.5, 0, .1, 1);
+  --ease-swing: cubic-bezier(.3, 1.4, .5, 1);
+  --dur-quick: 180ms;
+  --dur-enter: 600ms;
+  --stagger: 80ms;
+}
+
+/* ---------- Shared keyframes ---------- */
+
+@keyframes nk-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes nk-out {
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes nk-unveil {
+  from { clip-path: inset(0 0 100% 0); transform: translateY(.35em); }
+  to   { clip-path: inset(0 0 -.2em 0); transform: none; }
+}
+
+@keyframes nk-stroke {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---------- .nk-reveal : enter on scroll ---------- */
+/* Usage: <section class="nk-reveal" style="--i: 1"> */
+
+@supports (animation-timeline: view()) {
+  .nk-reveal {
+    animation: nk-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+/* Fallback when the optional IntersectionObserver script is used (see references/motion.md) */
+.nk-reveal.nk-js {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--dur-enter) var(--ease-settle),
+    transform var(--dur-enter) var(--ease-settle);
+  transition-delay: calc(var(--i, 0) * var(--stagger));
+}
+.nk-reveal.nk-js.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- .nk-mask : headline line by line ---------- */
+/* Usage: <h1 class="nk-mask"><span>First line</span><span>Second line</span></h1> */
+
+.nk-mask > span {
+  display: block;
+  animation: nk-unveil var(--dur-enter) var(--ease-settle) both;
+}
+.nk-mask > span:nth-child(2) { animation-delay: calc(1 * var(--stagger) * 1.5); }
+.nk-mask > span:nth-child(3) { animation-delay: calc(2 * var(--stagger) * 1.5); }
+.nk-mask > span:nth-child(4) { animation-delay: calc(3 * var(--stagger) * 1.5); }
+
+/* ---------- .nk-draw : hand-drawn SVG stroke ---------- */
+/* Usage: <svg><path class="nk-draw" pathLength="1" d="..."/></svg> */
+
+.nk-draw {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: nk-stroke 1.1s var(--ease-settle) .3s forwards;
+}
+
+/* ---------- .nk-link : underline that thickens and lifts ---------- */
+/* Links stay underlined at rest, so they never depend on color alone. */
+
+.nk-link {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  transition:
+    text-decoration-thickness var(--dur-quick) var(--ease-snap),
+    text-underline-offset var(--dur-quick) var(--ease-snap);
+}
+.nk-link:hover,
+.nk-link:focus-visible {
+  text-decoration-thickness: 2px;
+  text-underline-offset: .28em;
+}
+
+/* ---------- .nk-press : button response ---------- */
+
+.nk-press {
+  transition: transform var(--dur-quick) var(--ease-snap);
+}
+.nk-press:active {
+  transform: translateY(1px) scale(.98);
+}
+
+/* ---------- .nk-tilt : resting rotation ---------- */
+/* Usage: style="--tilt: -1.5deg" */
+
+.nk-tilt {
+  transform: rotate(var(--tilt, -1deg));
+  transition: transform 300ms var(--ease-settle);
+}
+.nk-tilt:hover,
+.nk-tilt:focus-within {
+  transform: none;
+}
+
+/* ---------- Page transitions (multi-page sites) ---------- */
+
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) { animation: 220ms var(--ease-snap) both nk-out; }
+::view-transition-new(root) { animation: 420ms var(--ease-settle) both nk-in; }
+
+/* ---------- Reduced motion: everything off ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* Kept separate: a browser that does not know these pseudo-elements
+     would otherwise drop the whole rule above. */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  .nk-reveal.nk-js,
+  .nk-tilt {
+    opacity: 1;
+    transform: none;
+  }
+  .nk-draw {
+    stroke-dashoffset: 0;
+  }
+}

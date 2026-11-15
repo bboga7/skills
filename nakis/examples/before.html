@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+  nakis example: BEFORE
+  A deliberately generic landing page, built from common defaults.
+  Run: python3 ../scripts/audit.py before.html
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nakis - Elevate Your Web Design</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: sans-serif; background: #0f0f1a; color: #e5e7eb; text-align: center; }
+  a, button { outline: none; }
+  .hero {
+    padding: 120px 24px;
+    background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 50%, #7c3aed 100%);
+    background-size: 200% 200%;
+    animation: shift 8s ease infinite;
+  }
+  @keyframes shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  .hero h1 { font-size: 56px; font-weight: 800; text-align: center;
+    background: linear-gradient(90deg, #fff, #c4b5fd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { margin: 24px auto; max-width: 640px; font-size: 20px; text-align: center; color: #ddd6fe; }
+  .btn { display: inline-block; padding: 16px 32px; border-radius: 16px; background: #fff; color: #4f46e5;
+    font-weight: 700; text-decoration: none; box-shadow: 0 10px 30px rgba(79,70,229,.4); transition: all .3s;
+    animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { transform: scale(1.05); } }
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 80px 24px; max-width: 1100px; margin: auto; }
+  .card { padding: 32px; border-radius: 16px; background: rgba(255,255,255,.06); backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.3); text-align: center; transition: all .3s; }
+  .card:hover { transform: translateY(-8px); }
+  .card h3 { margin: 16px 0 8px; }
+  .card p { color: #a1a1aa; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 24px; max-width: 900px; margin: auto; }
+  .stat { padding: 24px; border-radius: 16px; background: rgba(255,255,255,.04); backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.3); text-align: center; }
+  .stat strong { display: block; font-size: 40px; color: #a78bfa; }
+  .quote { padding: 80px 24px; max-width: 760px; margin: auto; font-size: 22px; font-style: italic; text-align: center; }
+  .cta { padding: 100px 24px; background: linear-gradient(90deg, #4f46e5, #9333ea); border-radius: 16px;
+    margin: 40px 24px; box-shadow: 0 8px 24px rgba(0,0,0,.3); text-align: center; }
+  .cta h2 { font-size: 40px; margin-bottom: 24px; }
+  footer { padding: 40px; color: #71717a; text-align: center; }
+  footer ul { list-style: none; display: flex; justify-content: center; gap: 24px; }
+  .muted-note { color: #3f3f46; background: #0f0f1a; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>Elevate Your Web Design To The Next Level 🚀</h1>
+  <p>In today's fast-paced digital landscape, Nakis empowers you to unlock seamless, cutting-edge designs that truly stand out. Whether you're a beginner or an expert, we've got you covered.</p>
+  <a class="btn" href="#">Get Started</a>
+</section>
+
+<section class="features">
+  <div class="card">
+    <div>✨</div>
+    <h3>✨ Seamless Copy</h3>
+    <p>Effortlessly transform your content into compelling, innovative stories that resonate with your audience.</p>
+  </div>
+  <div class="card">
+    <div>🎨</div>
+    <h3>🎨 Stunning Visuals</h3>
+    <p>Leverage world-class design principles to create vibrant, robust layouts that captivate and convert.</p>
+  </div>
+  <div class="card">
+    <div>⚡</div>
+    <h3>⚡ Dynamic Motion</h3>
+    <p>Supercharge your pages with next-level animations that bring your brand to life like never before.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><strong>10x</strong>Faster workflow</div>
+  <div class="stat"><strong>99%</strong>Happy users</div>
+  <div class="stat"><strong>24/7</strong>Support</div>
+</section>
+
+<section class="quote">
+  <p>"It's not just a tool, it's a game-changer. Nakis revolutionized the way our team approaches design."</p>
+  <p class="muted-note">Happy Customer, CEO</p>
+</section>
+
+<section class="cta">
+  <h2>Ready To Get Started?</h2>
+  <p>Join thousands of designers who are already crafting the future of the web.</p>
+  <br>
+  <a class="btn" href="#">Learn More</a>
+</section>
+
+<footer>
+  <ul>
+    <li>Privacy</li>
+    <li>Terms</li>
+    <li>Contact</li>
+  </ul>
+  <p>Built with love. Let's build something amazing together.</p>
+</footer>
+
+</body>
+</html>

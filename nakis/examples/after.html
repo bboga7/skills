@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--
+  nakis example: AFTER
+  The same page, rebuilt with the nakis workflow.
+  Idea: a linen sample card with one red thread stitched through it.
+  Run: python3 ../scripts/audit.py after.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nakis: pages that look like someone made them</title>
+<link rel="stylesheet" href="../assets/motion.css">
+<style>
+  /* palette: python3 scripts/palette.py "#9a3412" */
+  :root {
+    --bg: #f8f5f4;
+    --surface: #f0eae7;
+    --ink: #2f221d;
+    --muted: #7c635a;
+    --line: #ded6d3;
+    --line-strong: #9c8881;
+    --accent: #9a3412;
+    --accent-ink: #ffffff;
+    --serif: ui-serif, serif;
+    --mono: ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--bg);
+  }
+
+  body {
+    font: 1.0625rem/1.65 var(--serif);
+  }
+
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    filter: url(#grain);
+    opacity: .05;
+  }
+
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .page {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* header */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line-strong);
+    font: .8125rem/1.4 var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .masthead b { color: var(--ink); font-weight: 600; }
+
+  /* hero: two thirds headline, one third margin note */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+    padding: clamp(3rem, 10vw, 7.5rem) 0 clamp(2rem, 6vw, 4rem);
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.75rem, 6.2vw, 5.4rem);
+    line-height: .98;
+    font-weight: 400;
+    letter-spacing: -.035em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .thread {
+    display: block;
+    width: min(100%, 34rem);
+    height: auto;
+    margin-top: 1.25rem;
+    color: var(--accent);
+  }
+  .thread path { stroke-width: 2.5; stroke-dasharray: 1; }
+  .lead {
+    max-width: 34ch;
+    margin: 1.75rem 0 0;
+    font-size: 1.25rem;
+    text-wrap: pretty;
+  }
+  .note {
+    align-self: end;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+    font: .875rem/1.6 var(--mono);
+    color: var(--muted);
+  }
+  .note dfn { font-style: normal; color: var(--ink); font-weight: 600; }
+
+  /* sections */
+  section { padding: clamp(2.5rem, 7vw, 5.5rem) 0; border-top: 1px solid var(--line-strong); }
+  h2 {
+    margin: 0 0 2rem;
+    font: 600 .8125rem/1.4 var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+    max-width: 52rem;
+  }
+  .steps li::before {
+    content: counter(step, decimal-leading-zero);
+    font: 400 2rem/1 var(--serif);
+    color: var(--accent);
+  }
+  .steps strong { display: block; font-size: 1.375rem; font-weight: 500; line-height: 1.3; }
+  .steps span { color: var(--muted); }
+
+  .compare {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .score {
+    margin: 0;
+    font: 300 clamp(4rem, 12vw, 8.5rem)/.9 var(--serif);
+    letter-spacing: -.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .score small { font-size: .3em; letter-spacing: 0; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font: .9375rem/1.5 var(--mono); }
+  th, td { text-align: left; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 400; }
+  td:last-child { color: var(--accent); }
+
+  pre {
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    font: .875rem/1.7 var(--mono);
+    max-width: 52rem;
+  }
+  .install p { max-width: 60ch; }
+
+  .rules {
+    max-width: 40ch;
+    font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+    line-height: 1.25;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .colophon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--line-strong);
+    font: .8125rem/1.5 var(--mono);
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .hero, .compare { grid-template-columns: 1fr; }
+    .note { align-self: start; }
+    .steps li { grid-template-columns: 3rem minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body class="grain">
+<svg width="0" height="0" aria-hidden="true" focusable="false">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter>
+</svg>
+
+<div class="page">
+  <header class="masthead">
+    <span><b>nakis</b> / agent skill</span>
+    <span>MIT License</span>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1 class="nk-mask">
+          <span>Pages that look like</span>
+          <span><em>someone made them.</em></span>
+        </h1>
+        <svg class="thread" viewBox="0 0 540 40" aria-hidden="true" focusable="false">
+          <path class="nk-draw" pathLength="1" d="M4 22 C 60 6, 96 34, 150 20 S 238 8, 290 24 S 392 36, 440 18 S 512 10, 536 20"/>
+        </svg>
+        <p class="lead">A skill for coding agents that replaces default copy, color and motion with decisions, then checks the page and tells you what is still generic.</p>
+      </div>
+      <p class="note"><dfn>nakış</dfn> (Turkish): hand embroidery. Each stitch is placed on purpose, never printed from a stock pattern.</p>
+    </div>
+
+    <section class="nk-reveal" aria-labelledby="what">
+      <h2 id="what">What the agent does with it</h2>
+      <ol class="steps">
+        <li><div><strong>Reads the brief before it writes code.</strong><span>Page type, reader, one main action, three tone words. It asks one question when the brief is unclear.</span></div></li>
+        <li><div><strong>Writes the copy first, in English or Turkish.</strong><span>Stock phrases, mirror sentences and translation smell are rewritten into specific claims. Every claim has to come from the brief; anything else is left out or flagged for the owner.</span></div></li>
+        <li><div><strong>Builds a palette from one seed color.</strong><span>Neutrals are tinted, text is checked against its background, and the accent stays rare.</span></div></li>
+        <li><div><strong>Adds one moment of motion.</strong><span>A headline that unveils, a thread that draws itself. Everything stops when the reader asks for less motion.</span></div></li>
+        <li><div><strong>Audits the result.</strong><span>A local script scores the page from 0 to 100 and lists each pattern it found, with the line to fix.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="nk-reveal" aria-labelledby="proof">
+      <h2 id="proof">The same page, twice</h2>
+      <div class="compare">
+        <p class="score">0<small> &rarr; 100</small></p>
+        <table>
+          <thead><tr><th>Found on the first version</th><th>Changed to</th></tr></thead>
+          <tbody>
+            <tr><td data-nakis-ignore>"Elevate your web design to the next level"</td><td>A sentence that only fits this page</td></tr>
+            <tr><td>Violet gradient, looping forever</td><td>Linen tone and one red thread</td></tr>
+            <tr><td>Three equal cards with emoji</td><td>A numbered list of five steps</td></tr>
+            <tr><td>"Get Started" and "Learn More"</td><td>Buttons that say what happens</td></tr>
+            <tr><td>Outlines removed, no reduced motion</td><td>Visible focus, motion that can stop</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="nk-reveal install" aria-labelledby="install">
+      <h2 id="install">Install in two steps</h2>
+      <p>Copy the <code>nakis</code> folder into the skills folder of your agent. Then ask it for a page, or for a review of one you already have. To check a page yourself:</p>
+      <pre><code>python3 nakis/scripts/audit.py path/to/index.html
+python3 nakis/scripts/palette.py "#9a3412"</code></pre>
+      <p><a class="nk-link" href="../SKILL.md">Read the skill file the agent follows</a></p>
+    </section>
+
+    <section class="nk-reveal" aria-labelledby="rules">
+      <h2 id="rules">Runs on your machine</h2>
+      <p class="rules">No servers, no keys, no font services, no model calls inside the scripts. Plain files you can read in an afternoon.</p>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <span>nakis, released under the MIT License.</span>
+    <span>Set in the serif and monospace fonts already on your device.</span>
+  </footer>
+</div>
+</body>
+</html>

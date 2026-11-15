@@ -1,0 +1,124 @@
+{
+  "_comment": "Shared pattern list for scripts/audit.py and references/copy.md. Patterns are regular expressions matched against lower-cased visible text. Keep both files in sync when you add or remove a pattern.",
+  "en": {
+    "inflated_verbs": [
+      "\\belevat(e|es|ing)\\b",
+      "\\bunlock(s|ing)?\\b",
+      "\\bunleash(es|ing)?\\b",
+      "\\bempower(s|ing)?\\b",
+      "\\bsupercharg(e|es|ing)\\b",
+      "\\brevolutioni[sz](e|es|ing)\\b",
+      "\\bstreamlin(e|es|ing)\\b",
+      "\\bleverag(e|es|ing)\\b",
+      "\\bharness(es|ing)?\\b",
+      "\\breimagin(e|es|ing)\\b",
+      "\\bredefin(e|es|ing)\\b",
+      "\\bdelv(e|es|ing)\\b",
+      "\\bembark(s|ing)?\\b",
+      "\\bfoster(s|ing)?\\b",
+      "\\bspearhead(s|ing)?\\b",
+      "\\bskyrocket(s|ing)?\\b",
+      "\\bamplif(y|ies|ying)\\b"
+    ],
+    "empty_adjectives": [
+      "\\bseamless(ly)?\\b",
+      "\\beffortless(ly)?\\b",
+      "\\bcutting[- ]edge\\b",
+      "\\bnext[- ]level\\b",
+      "\\bworld[- ]class\\b",
+      "\\bbest[- ]in[- ]class\\b",
+      "\\bstate[- ]of[- ]the[- ]art\\b",
+      "\\brobust\\b",
+      "\\binnovative\\b",
+      "\\bgame[- ]chang(er|ing)\\b",
+      "\\bholistic\\b",
+      "\\bbespoke\\b",
+      "\\bunparalleled\\b",
+      "\\bvibrant\\b"
+    ],
+    "stock_phrases": [
+      "in today'?s (fast[- ]paced|digital|ever[- ]changing)",
+      "whether you'?re an? .{1,40}? or an?\\b",
+      "look no further",
+      "take (your|it) .{1,30}? to the next level",
+      "say goodbye to",
+      "the future of \\w+",
+      "designed with you in mind",
+      "crafted with (passion|care|love)",
+      "built with love",
+      "one[- ]stop[- ]shop",
+      "all in one place",
+      "join (thousands|millions|hundreds) of",
+      "ready to (get started|dive in|take the next step)",
+      "we'?ve got you covered",
+      "a testament to",
+      "plays? a (crucial|pivotal|vital) role",
+      "navigat(e|ing) the (complexities|landscape)",
+      "at the intersection of",
+      "let'?s build something (amazing|great|incredible)"
+    ],
+    "mirror_sentences": [
+      "\\bit'?s not just\\b.{1,60}?\\bit'?s\\b",
+      "\\bnot just\\b.{1,40}?\\bbut\\b",
+      "\\bmore than just\\b"
+    ],
+    "generic_cta": [
+      "get started",
+      "learn more",
+      "submit",
+      "click here",
+      "read more",
+      "start now",
+      "sign up now",
+      "discover more"
+    ]
+  },
+  "tr": {
+    "stock_phrases": [
+      "dijital dünyada",
+      "hızla değişen dünya",
+      "bir (sonraki|üst) seviyeye taşı",
+      "yeniden tanımlı",
+      "sınırları zorla",
+      "fark yarat",
+      "alanında öncü",
+      "yenilikçi çözüm",
+      "müşteri odaklı",
+      "uçtan uca",
+      "sorunsuz bir deneyim",
+      "kesintisiz deneyim",
+      "tek bir platform",
+      "hayallerinizi gerçeğe",
+      "potansiyelini(zi)? ortaya çıkar",
+      "gücünü keşfed",
+      "yolculuğ(unuz|un|unuzda)",
+      "sizin için özel olarak",
+      "tutkuyla (tasarla|hazırla|üret)",
+      "binlerce mutlu",
+      "hazır mısınız",
+      "bu bağlamda",
+      "bu doğrultuda",
+      "önemli bir rol oyn",
+      "ister .{1,30}? olun,? ister"
+    ],
+    "translation_smell": [
+      "\\btarafından\\b",
+      "\\w+mektedir\\b",
+      "\\w+maktadır\\b",
+      "(destek|hizmet|çözüm|fayda|imkan|imkân|kolaylık) (sağla|sun)"
+    ],
+    "mirror_sentences": [
+      "sadece .{1,40}? değil,? (aynı zamanda|ayrıca)",
+      "yalnızca .{1,40}? değil,? (aynı zamanda|ayrıca)"
+    ],
+    "generic_cta": [
+      "hemen başla",
+      "daha fazla bilgi",
+      "daha fazlası",
+      "gönder",
+      "tıklayın",
+      "keşfet",
+      "şimdi başla"
+    ]
+  }
+}
