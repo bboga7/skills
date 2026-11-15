@@ -29,18 +29,21 @@ The first page was written to fail on purpose, so treat the comparison as a demo
 
 ### Tested blind
 
-The test was run by the author together with AI agents. The same brief went to two fresh agents, one with the skill
-and one without, and a third agent judged
-the pages without knowing which was which. Two briefs (English and Turkish), three rounds in Turkish and two in English, the skill revised after each round.
+The test was run by the author together with AI agents. The same brief went to two fresh agents, one with the
+skill and one without, and a third agent judged the pages without knowing which was which. Two briefs (English and
+Turkish), four rounds in Turkish and two in English, with the skill revised after each round.
 
 - **Invented facts:** pages built without the skill made up 6–16 claims the brief never gave, depending on the round.
-  In the last round, pages built with it had 0 (English) and 2 small, flagged inferences (Turkish).
+  In the latest rounds, pages built with it had 0 (English) and 2 small, flagged inferences (Turkish).
 - **Outside files:** one page built without the skill loaded fonts from another server; none built with it did.
-- **Looks:** the judge preferred the skill's English pages in both rounds. In Turkish the result was mixed: the skill's page won the first round, and in the next two the page built without
-  the skill was judged warmer and more crafted, while the skill's page was more accurate but plainer.
+- **English:** the judge preferred the skill's pages in both rounds.
+- **Turkish:** for three rounds the skill's copy was accurate but plain. After it learned to ask for the owner's
+  voice and to write warm sentences without adding facts, the latest round flipped: its Turkish was rated warmer
+  (8/10 against 6/10). That page still lost overall, because a drawing covered text on phones.
 - **The score** barely separated them: pages built without the skill already scored 84–95.
 
-It is a small test with a model as the judge. Treat it as a first look, not a benchmark.
+It is a small test with a model as the judge, and the Turkish result comes from a single round. Treat it as a first
+look, not a benchmark.
 
 ### What the agent does with it
 

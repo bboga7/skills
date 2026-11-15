@@ -29,7 +29,8 @@ Go through it with the finished page open. If an answer is "no", fix it before y
 - [ ] Neutrals are tinted, the accent is rare, and there is no default violet-blue gradient.
 - [ ] Type has real scale contrast and comfortable line length.
 - [ ] No texture, grid or pattern makes body text harder to read, on desktop or on a phone.
-- [ ] The page looks intentional at 360 px wide and at 1440 px wide.
+- [ ] The page looks intentional at 360 px wide and at 1440 px wide. Take a screenshot at both widths and look:
+      no drawing, texture or decoration may sit on top of text, especially in the first screen on a phone.
 
 ## Motion
 

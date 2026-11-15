@@ -88,6 +88,13 @@ innovative, game-changing, holistic, tailored, bespoke, curated, vibrant, dynami
 - a testament to / plays a crucial role / navigate the complexities
 - at the intersection of [x] and [y]
 
+### Warm without new facts (English)
+
+| Cold | Warm, nothing added |
+|---|---|
+| Our bakery has been operating since 1998. | Since 1998, this street's mornings have started in our oven. |
+| Orders can be placed by phone. | We take orders by phone. One call is enough. |
+
 ### How to fix
 
 | Pattern | Rewrite method | Example |
@@ -133,6 +140,35 @@ structure, too many passive verbs and nouns made from verbs. Fix the sentence sh
 | Gereksiz "bir" | "Bir harika bir deneyim için" | "Rahat bir alışveriş için" |
 | İngilizce söz dizimi | "Bizimle, işiniz büyür." | "İşinizi birlikte büyütelim." |
 | "olarak" fazlası | "Ekip olarak, şirket olarak..." | Çoğu zaman silinebilir. |
+
+### Uydurmadan sıcak yazmak (warm copy without new facts)
+
+Sıcaklık yeni bilgiden değil, kuruluştan gelir: okura doğrudan seslenmek, kısa ve uzun cümleleri karıştırmak,
+işin kendi kelimelerini kullanmak, bilinen bir bilgiyi bir sahne gibi anlatmak. Aşağıdaki örneklerin hiçbiri
+brifte olmayan bir bilgi eklemiyor. Bunlar örnek; kalıp olarak kopyalama, kendi sayfanın sesini bul.
+
+**Brif: mahalle fırını, 1998'den beri, sabah 6'da açılıyor, ekşi maya ekmek, sipariş telefonla.**
+
+| Soğuk | Sıcak, yeni bilgi yok |
+|---|---|
+| Fırınımız 1998 yılından beri hizmet vermektedir. | 1998'den beri bu mahallenin sabahı bizim fırında başlıyor. |
+| Çalışma saatlerimiz sabah 06.00'da başlamaktadır. | Kapımız sabah altıda açılıyor. |
+| Ekşi maya ekmeklerimiz mevcuttur. | Ekmeğimiz ekşi mayayla. |
+| Siparişleriniz için telefonla iletişime geçebilirsiniz. | Siparişi telefonla alıyoruz; bir arama yeter. |
+
+**Brif: bisiklet tamircisi, 3 usta, aynı gün lastik tamiri, cumartesi kapalı, adres var.**
+
+| Soğuk | Sıcak, yeni bilgi yok |
+|---|---|
+| Atölyemizde 3 usta görev yapmaktadır. | Tezgâhta üç usta var. |
+| Lastik tamiri aynı gün içerisinde gerçekleştirilmektedir. | Patlak lastik aynı gün yola döner. |
+| Cumartesi günleri kapalıyız. | Cumartesi biz de bisiklete biniyoruz; dükkân kapalı. |
+
+Son örnek sınırda: "biz de bisiklete biniyoruz" brifte yok. Böyle bir cümle sayfaya değil, sahibine sunulan
+öneri listesine gider. Sayfada kalacak hali: "Cumartesi kapalıyız."
+
+Kontrol sorusu: **Bu cümle, brifteki bir bilgiyi daha insanca mı söylüyor, yoksa yeni bir bilgi mi ekliyor?**
+İlki serbest, ikincisi öneri listesine.
 
 ### Turkish rules
 

@@ -51,7 +51,18 @@ If the request is too vague to decide these, ask **one** question. Otherwise sta
 > Reading this as: a portfolio for hiring managers, tone calm / precise / warm, main action "get in touch".
 
 Then gather **concrete material**: real project names, numbers, places, dates, tools, short stories.
-Specific detail is the strongest signal that a person made the page. Ask for it if it is missing.
+Specific detail is the strongest signal that a person made the page.
+
+**If the brief is thin, ask for the owner's voice before writing.** Facts make a page true; voice makes it
+warm, and voice cannot be invented. Ask up to four short questions in one message, for example:
+
+- What does a customer leave with, in your own words?
+- Is there a sentence you find yourself saying to customers again and again?
+- What is a small moment in the work that you enjoy?
+- Who is this not for?
+
+Use the answers word for word where they fit. If nobody can answer (the user is away, or the task runs
+unattended), carry on with the brief alone and use the suggestions list in "What to report back".
 
 ### 2. Write the copy first
 
@@ -69,6 +80,10 @@ Copy decides the layout, never the other way round. Read `references/copy.md`.
   The page always ends with a way to act: the button, the number or the address.
 - **Sound like the owner talking.** Warmth comes from voice, not from invented detail: address the reader,
   use the trade's own words, vary the sentences. Do not describe interface behavior ("your phone app opens").
+  `references/copy.md` has worked examples of warm copy that adds no new facts. Study them before writing.
+- **Park warm guesses, don't publish them.** If a sentence would make the page warmer but it is not in the
+  brief ("we sit next to each student", "you take your book home"), keep it off the page and put it in the
+  suggestions list for the owner to confirm.
 
 ### 3. Set the visual identity
 
@@ -117,7 +132,8 @@ python3 scripts/audit.py path/to/index.html --lang tr      # force Turkish copy 
 - If the page quotes a bad phrase on purpose (for example in a before/after comparison),
   add `data-nakis-ignore` to that element so the copy checks skip it. Do not use it to hide real copy.
 - Target score: **85 or higher**. Re-run the audit after fixing.
-- Finish with `references/checklist.md`, which covers what a script cannot judge.
+- Finish with `references/checklist.md`, which covers what a script cannot judge. The script cannot see the
+  rendered page: if you can take screenshots, check the page at 360 px and 1440 px for overlapping elements.
 
 ## Working inside an existing project
 
@@ -133,3 +149,5 @@ Keep it short:
 2. The page's idea and the 3–5 decisions that follow from it (palette, type, layout, motion).
 3. The audit score before and after fixing, and any finding you deliberately kept.
 4. Every placeholder the user still needs to fill, and every claim you were unsure about.
+5. **Sentences to add if they are true:** up to five warm lines you kept off the page because the brief did
+   not support them, each ready to paste. This is often where the page's voice is waiting.

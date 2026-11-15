@@ -426,7 +426,11 @@ def check_copy(root: Node, text: str, lang: str, patterns: dict, report: Report)
                        [f"average {statistics.mean(lengths):.1f} words, spread {statistics.pstdev(lengths):.1f}"])
 
     # Repetition: the same sentence, or the same number, again and again
-    blocks = [n.text() for n in root.iter() if n.tag in ("p", "li", "h1", "h2", "h3", "a", "button", "dd", "td")]
+    def is_contact(n):
+        href = n.attrs.get("href", "").lower()
+        return href.startswith(("tel:", "mailto:")) or bool(re.search(r"\+?\d[\d ()\-]{6,}\d", n.text()))
+    blocks = [n.text() for n in root.iter()
+              if n.tag in ("p", "li", "h1", "h2", "h3", "a", "button", "dd", "td") and not is_contact(n)]
     norm = Counter(re.sub(r"\W+", " ", tr_lower(b) if lang == "tr" else b.lower()).strip()
                    for b in blocks if len(b.split()) >= 3)
     repeated = [f"{t[:50]} (x{n})" for t, n in norm.items() if n >= 3]

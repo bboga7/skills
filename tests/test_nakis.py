@@ -102,6 +102,10 @@ class AuditCopyTests(unittest.TestCase):
         body = FILLER + "<p>Call 0212 555 00 00.</p>" * 2 + "<p>Or 0212 555 00 00 on Saturday.</p>" * 2
         self.assertNotIn("repeated-numbers", rules(audit.audit(page(body))))
 
+    def test_contact_links_are_not_repeated_lines(self):
+        link = '<p><a href="tel:+900000000000">Call 0000 000 00 00 to book</a></p>'
+        self.assertNotIn("repeated-lines", rules(audit.audit(page(FILLER + link * 3))))
+
     def test_question_headings(self):
         html = page(FILLER + "<h2>Why us?</h2><p>x</p><h2>How does it work?</h2>")
         self.assertIn("question-headings", rules(audit.audit(html)))
